@@ -1,7 +1,7 @@
 <script setup>
-  import TheHeader from './components/TheHeader.vue';
-  import TheLeading from './components/TheLeading.vue';
-  import TheInfo from './components/TheInfo.vue';
+import TheHeader from './components/TheHeader.vue';
+import TheLeading from './components/TheLeading.vue';
+import TheMain from './components/TheMain.vue';
 </script>
 
 <template>
@@ -9,12 +9,12 @@
     <the-leading>
       <the-header></the-header>
     </the-leading>
-    <the-info/>
+    <the-main />
   </div>
 </template>
 
 <style scoped>
-  .wrapper {
-      flex-grow: 1;
-  }
+.wrapper {
+  flex-grow: 1;
+}
 </style>
