@@ -1,18 +1,18 @@
 <script setup>
-
+  import VButton from './VButton.vue';
 </script>
 
 <template>
 
   <form action="#">
-      <h3>ОСТАЛИСЬ ВОПРОСЫ?</h3>
-      <input type="tel" placeholder="Ваш телефон" id="tel"/>
-      <input type="button" value="Заказать звонок" class="button" />
-      <div class="agreement">
-        <input type="checkbox" id="personal-data" />
-        <label for="personal-data">Я согласен на обработку персональных данных</label>
-      </div>
-    </form>
+    <h3>ОСТАЛИСЬ ВОПРОСЫ?</h3>
+    <input type="tel" placeholder="Ваш телефон" id="tel"/>
+    <v-button value="Заказать звонок"/>
+    <div class="agreement">
+      <input type="checkbox" id="personal-data" />
+      <label for="personal-data">Я согласен на обработку персональных данных</label>
+    </div>
+  </form>
 </template>
 
 <style lang="scss" scoped>
