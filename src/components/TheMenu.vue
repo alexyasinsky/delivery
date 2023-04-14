@@ -1,25 +1,25 @@
 <script setup>
-  import FeedbackForm from './FeedbackForm.vue';
-  import SocialMedia from './SocialMedia.vue';
-  import VLogo from './VLogo.vue';
+import FeedbackForm from './FeedbackForm.vue';
+import SocialMedia from './SocialMedia.vue';
+import VLogo from './VLogo.vue';
 
-  const menu = [
-    'Главная',
-    'Отзывы',
-    'Гарантии',
-    'Описание',
-    'Партнеры',
-    'Преимущества',
-    'FAQ',
-  ];
+const menu = [
+  'Главная',
+  'Отзывы',
+  'Гарантии',
+  'Описание',
+  'Партнеры',
+  'Преимущества',
+  'FAQ',
+];
 
-  function showMenu() {
-    return (document.querySelector('.menu_s').style.left = 0);
-  }
+function showMenu() {
+  return (document.querySelector('.menu_s').style.left = 0);
+}
 
-  function hideMenu() {
-    return (document.querySelector('.menu_s').style.left = '100%');
-  }
+function hideMenu() {
+  return (document.querySelector('.menu_s').style.left = '100%');
+}
 </script>
 
 <template>
@@ -41,8 +41,9 @@
       />
       <label :for="`menu-s-${item}`">{{ item }}</label>
     </div>
-    <feedback-form/>
-    <social-media/>
+    <h3>ОСТАЛИСЬ ВОПРОСЫ?</h3>
+    <feedback-form direction="column" color-style="white-blue"/>
+    <social-media />
   </nav>
   <nav class="menu_mb">
     <div class="menu__item" v-for="(item, ind) in menu" :key="ind">
@@ -74,6 +75,11 @@
       font-size: 18px;
       color: #000000;
       line-height: 45px;
+    }
+    h3 {
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 18px;
     }
   }
   &_mb {

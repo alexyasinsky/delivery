@@ -8,7 +8,7 @@
     <h1 class="leading__h1">Придумайте, что отправить</h1>
     <h2 class="leading__h2">А посылка доедет сама</h2>
     <form action="#">
-      <v-button value="Отправить посылку"/>
+      <v-button color-style="white-blue" value="Отправить посылку" />
     </form>
   </div>
 </template>

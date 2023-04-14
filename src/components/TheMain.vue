@@ -1,5 +1,6 @@
 <script setup>
 import VButton from './VButton.vue';
+import FeedbackForm from './FeedbackForm.vue';
 
 const steps = [
   {
@@ -36,7 +37,7 @@ const steps = [
         предоставленный объем заказов, а вы получаете надежный сервис в подарок!
       </p>
       <form action="#">
-        <v-button value="Отправить посылку" />
+        <v-button colorStyle="white-blue" value="Отправить посылку" />
       </form>
     </section>
     <section class="step__box padding-site">
@@ -49,8 +50,18 @@ const steps = [
     <section class="offer padding-site">
       <h1>Мы берём все заботы по доставке на себя!</h1>
       <form action="#">
-        <v-button value="Отправить посылку" />
+        <v-button colorStyle="white-blue" value="Отправить посылку" />
       </form>
+    </section>
+    <section class="callback padding-site">
+      <div>
+        <h1>хотите мы вам перезвоним?</h1>
+        <p>Закажите звонок, и менеджер вам всё расскажет и объяснит</p>
+      </div>
+      <feedback-form
+        direction="column"
+        color-style="blue-yellow"
+      />
     </section>
   </main>
 </template>
@@ -80,6 +91,19 @@ const steps = [
 
 .offer {
   background-color: #f7f7f7;
+}
+
+.callback {
+  background: #008dcd;
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+  p {
+    color: #ffffff;
+  }
 }
 
 @media (min-width: 320px) {
@@ -130,6 +154,22 @@ const steps = [
     }
     form {
       margin-top: 23px;
+    }
+  }
+
+  .callback {
+    padding-top: 23px;
+    padding-bottom: 8px;
+    flex-direction: column;
+    h1 {
+      font-size: 28px;
+      line-height: 34px;
+    }
+    p {
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 13px;
+      margin-bottom: 14px;
     }
   }
 }
@@ -201,6 +241,15 @@ const steps = [
       margin: 0;
     }
   }
+
+  .callback {
+    padding-top: 32px;
+    padding-bottom: 14px;
+    flex-direction: row;
+    h1, p {
+      margin-right: 130px;
+    }
+  }
 }
 
 @media (min-width: 1440px) {
@@ -249,6 +298,22 @@ const steps = [
     h1 {
       font-size: 36px;
       line-height: 43px;
+    }
+  }
+
+  .callback {
+    height: 167px;
+    padding-top: 73px;
+    h1, p {
+      margin-right: 60px;
+    }
+    h1 {
+      font-size: 48px;
+      line-height: 58px;
+    }
+    p {
+      font-size: 24px;
+      line-height: 23px;
     }
   }
 }

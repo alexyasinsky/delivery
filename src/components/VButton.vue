@@ -1,5 +1,6 @@
 <script setup>
-  const props = defineProps(['handler', 'value'])
+  const props = defineProps(['handler', 'value', 'colorStyle']);
+
 </script>
 
 <template>
@@ -7,6 +8,7 @@
     type="button"
     :value="value"
     @click="handler"
+    :class="colorStyle"
   />
 </template>
 
@@ -15,11 +17,9 @@
   input[type='button'] {
     font-size: 16px;
     line-height: 19px;
-    background: #008DCD;
     border-radius: 30px;
     border: 0;
     text-transform: uppercase;
-    color: #FFFFFF;
     width: 278px;
     height: 48px;
     font-weight: bold;
@@ -28,6 +28,18 @@
     &:hover {
         transform: scale(1.05,1.05);
     }
-    
   }
+
+  .white-blue {
+    background: #008DCD;
+    color: #FFFFFF;
+  }
+
+  .blue-yellow {
+    background: #ffcc00;
+    color: black;
+  }
+
+
+
 </style>
