@@ -54,34 +54,6 @@ summary {
     outline: 0;
 }
 
-
-
-.advantage {
-    &__box {
-        background: #F7F7F7;
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        h1 {
-            position: absolute;
-            width: 85%;
-        }
-    }
-    &__circle {
-        border-radius: 50%;
-        background-color: white;
-        display: flex;
-    }
-    img {
-        margin: auto;
-    }
-    p {
-        text-align: center;
-        width: 80px;
-    }
-}
-
 .guarantee {
     &__box {
         overflow: hidden;  
@@ -311,30 +283,7 @@ footer {
         margin-right: 6%;
     }
 
-    .advantage {
-        margin-bottom: 30px;
-        &__box {
-            padding-top: 103px;
-            h1 {
-                font-size: 28px;
-                line-height: 34px;
-                top: 23px;
-            }
-        }
-        &__circle {
-            height: 86px;
-            width: 86px;
-        }
-        img {
-            width: 40px;
-        }
-        p {
-            margin-top: 10px;
-            font-size: 10px;
-            line-height: 12px;
-            width: 80px;
-        }
-    }
+
 
     .guarantee {
         position: absolute;
@@ -591,29 +540,7 @@ footer {
         margin-right: 5%;
     }
 
-    .advantage {
-        margin-bottom: 50px;
-        &__box {
-            h1 {
-                font-size: 36px;
-                line-height: 43px;
-                top: 37px;
-            }
-        }
-        &__circle {
-            height: 100px;
-            width: 100px;
-        }
-        img {
-            width: 45px;
-        }
-        p {
-            margin-top: 16px;
-            font-size: 12px;
-            line-height: 14px;
-            width: 95px;
-        }
-    }
+
 
     .guarantee {
         position: unset;
@@ -863,28 +790,6 @@ footer {
 
 
 
-    .advantage {
-        margin-bottom: 70px;
-        &__box {
-            padding-top: 169px;
-            h1 {
-                top: 101px;
-            }
-        }
-        &__circle {
-            height: 160px;
-            width: 160px;
-        }
-        img {
-            width: 80px;
-        }
-        p {
-            margin-top: 34px;
-            font-size: 18px;
-            line-height: 22px;
-            width: 150px;
-        }
-    }
 
     .guarantee {
         width: 360px;

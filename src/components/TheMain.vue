@@ -1,8 +1,9 @@
 <script setup>
 import VButton from './VButton.vue';
 import FeedbackForm from './FeedbackForm.vue';
-import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide } from 'vue3-carousel';
+import { ref } from 'vue';
 
 const steps = [
   {
@@ -36,7 +37,7 @@ const feedbacks = [
     package: 'товары',
     departure: 'Москва',
     destination: 'Нижневартовск',
-    text: 'Отличный и качественный сервис. Долго искали курьерскую службу для доставки наших товаров. Решили попробовать и были приятно удивлены, что помимо удобного сайта, компания предоставляет доступ в личный кабинет, где реализованы многие наши потребности (ведение адресной базы, выбор и вызов курьера в пару кликов).'
+    text: 'Отличный и качественный сервис. Долго искали курьерскую службу для доставки наших товаров. Решили попробовать и были приятно удивлены, что помимо удобного сайта, компания предоставляет доступ в личный кабинет, где реализованы многие наши потребности (ведение адресной базы, выбор и вызов курьера в пару кликов).',
   },
   {
     id: 'feedback00002',
@@ -46,9 +47,9 @@ const feedbacks = [
     package: 'товары',
     departure: 'Москва',
     destination: 'Калининград',
-    text: 'Мне нравится работать с SendIt, потому что это удобно: моментальный расчет стоимости доставки, удобный сайт, выборка среди основных надёжных логистических компаний и самый значимый фактор – всё это можно оперативно организовать и не волноваться. И ещё хочу сказать отдельное спасибо менеджеру за отзывчивость.'
-  }
-]
+    text: 'Мне нравится работать с SendIt, потому что это удобно: моментальный расчет стоимости доставки, удобный сайт, выборка среди основных надёжных логистических компаний и самый значимый фактор – всё это можно оперативно организовать и не волноваться. И ещё хочу сказать отдельное спасибо менеджеру за отзывчивость.',
+  },
+];
 
 const feedbackCarouselBreakpoints = {
   320: {
@@ -59,7 +60,6 @@ const feedbackCarouselBreakpoints = {
   },
 };
 
-import {ref} from 'vue'
 const feedbackCarousel = ref(null);
 
 function nextFeedbackSlide() {
@@ -70,6 +70,32 @@ function previousFeedBackSlide() {
   return feedbackCarousel.value.prev();
 }
 
+const advantages = [
+  {
+    image: 'advantage1',
+    text: 'Бесплатный сервис',
+  },
+  {
+    image: 'advantage2',
+    text: 'Огромный выбор вариантов доставки',
+  },
+  {
+    image: 'advantage3',
+    text: '4 параметра лучшего предложения',
+  },
+  {
+    image: 'advantage4',
+    text: 'Удобство заказа',
+  },
+  {
+    image: 'advantage5',
+    text: 'Online-поддержка',
+  },
+  {
+    image: 'advantage6',
+    text: 'Единый номер отслеживания',
+  },
+];
 </script>
 
 <template>
@@ -104,27 +130,37 @@ function previousFeedBackSlide() {
         <h1>хотите мы вам перезвоним?</h1>
         <p>Закажите звонок, и менеджер вам всё расскажет и объяснит</p>
       </div>
-      <feedback-form
-        direction="column"
-        color-style="blue-yellow"
-      />
+      <feedback-form direction="column" color-style="blue-yellow" />
     </section>
     <section class="feedback__box padding-site">
-        <h1>ОТЗЫВЫ</h1>
+      <h1>ОТЗЫВЫ</h1>
       <div class="feedback__carousel">
-        <button class="feedback__button feedback__button_left" @click="nextFeedbackSlide">❮</button>
-        <button class="feedback__button feedback__button_right" @click="previousFeedBackSlide">❯</button>
+        <button
+          class="carousel__button carousel__button_left"
+          @click="nextFeedbackSlide"
+        >
+          ❮
+        </button>
+        <button
+          class="carousel__button carousel__button_right"
+          @click="previousFeedBackSlide"
+        >
+          ❯
+        </button>
         <carousel
-            :wrap-around="true"
-            snapAlign="start"
-            :breakpoints="feedbackCarouselBreakpoints"
-            ref="feedbackCarousel"
+          :wrap-around="true"
+          snapAlign="start"
+          :breakpoints="feedbackCarouselBreakpoints"
+          ref="feedbackCarousel"
         >
           <slide v-for="feedback in feedbacks" :key="feedback.id">
             <div class="feedback">
               <div>
-                <img :src="`src/assets/img/${feedback.image}.png`" :alt="feedback.image">
-                <h5 class="feedback__name" >{{ feedback.name }}</h5>
+                <img
+                  :src="`src/assets/img/${feedback.image}.png`"
+                  :alt="feedback.image"
+                />
+                <h5 class="feedback__name">{{ feedback.name }}</h5>
                 <h6 class="feedback__company">{{ feedback.company }}</h6>
                 <p class="feedback__desc">Посылка: {{ feedback.package }}</p>
                 <p class="feedback__desc">Откуда: {{ feedback.departure }}</p>
@@ -136,11 +172,22 @@ function previousFeedBackSlide() {
         </carousel>
       </div>
     </section>
+    <section class="advantage__box padding-site">
+      <h1>НАШИ ПРЕИМУЩЕСТВА</h1>
+      <div v-for="(advantage, ind) in advantages" :key="ind" class="advantage">
+        <div class="advantage__imageBackground">
+          <img
+            :src="`src/assets/img/${advantage.image}.png`"
+            :alt="advantage.image"
+          />
+        </div>
+        <p>{{ advantage.text }}</p>
+      </div>
+    </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
-
 .info {
   background-color: #f7f7f7;
   img {
@@ -184,9 +231,15 @@ function previousFeedBackSlide() {
   &__carousel {
     position: relative;
   }
-  &__button {
+
+  img {
+    float: left;
+  }
+}
+
+.carousel__button {
     position: absolute;
-    color: #B3B3B3;
+    color: #b3b3b3;
     z-index: 3;
     background: 0;
     &_left {
@@ -197,11 +250,31 @@ function previousFeedBackSlide() {
     }
   }
 
+.advantage {
+  &__box {
+    background: #f7f7f7;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    h1 {
+      position: absolute;
+      width: 85%;
+    }
+  }
+  &__imageBackground {
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+  }
   img {
-    float: left;
+    margin: auto;
+  }
+  p {
+    text-align: center;
+    width: 80px;
   }
 }
-
 
 @media (min-width: 320px) {
   .info {
@@ -282,12 +355,7 @@ function previousFeedBackSlide() {
         margin-bottom: 20px;
       }
     }
-    &__button {
-      &_left, &_right {
-        top: 100px;
-        font-size: 30px;
-      }
-    }
+    
     img {
       width: 100px;
       margin-right: 20px;
@@ -308,6 +376,39 @@ function previousFeedBackSlide() {
       margin-top: 10px;
       font-size: 12px;
       line-height: 14px;
+    }
+  }
+
+  .carousel__button {
+      &_left,
+      &_right {
+        top: 100px;
+        font-size: 30px;
+      }
+    }
+
+  .advantage {
+    margin-bottom: 30px;
+    &__box {
+      padding-top: 103px;
+      h1 {
+        font-size: 28px;
+        line-height: 34px;
+        top: 23px;
+      }
+    }
+    &__imageBackground {
+      height: 86px;
+      width: 86px;
+    }
+    img {
+      width: 40px;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 10px;
+      line-height: 12px;
+      width: 80px;
     }
   }
 }
@@ -384,7 +485,8 @@ function previousFeedBackSlide() {
     padding-top: 32px;
     padding-bottom: 14px;
     flex-direction: row;
-    h1, p {
+    h1,
+    p {
       margin-right: 130px;
     }
   }
@@ -400,11 +502,6 @@ function previousFeedBackSlide() {
         margin-bottom: 30px;
       }
     }
-    &__button {
-      &_left, &__right {
-        font-size: 30px;
-      }
-    }
 
     &__text {
       font-size: 14px;
@@ -412,6 +509,36 @@ function previousFeedBackSlide() {
     }
   }
 
+  .carousel__button {
+      &_left,
+      &__right {
+        font-size: 30px;
+      }
+    }
+
+  .advantage {
+    margin-bottom: 50px;
+    &__box {
+      h1 {
+        font-size: 36px;
+        line-height: 43px;
+        top: 37px;
+      }
+    }
+    &__imageBackground {
+      height: 100px;
+      width: 100px;
+    }
+    img {
+      width: 45px;
+    }
+    p {
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 14px;
+      width: 95px;
+    }
+  }
 }
 
 @media (min-width: 1440px) {
@@ -466,7 +593,8 @@ function previousFeedBackSlide() {
   .callback {
     height: 167px;
     padding-top: 73px;
-    h1, p {
+    h1,
+    p {
       margin-right: 60px;
     }
     h1 {
@@ -486,12 +614,6 @@ function previousFeedBackSlide() {
     &__box {
       padding-top: 69px;
       padding-bottom: 69px;
-    }
-    &__button {
-      &_left, &_right {
-        top: 130px;
-        font-size: 50px;
-      }
     }
 
     &__text {
@@ -518,6 +640,37 @@ function previousFeedBackSlide() {
       margin-top: 30px;
       font-size: 16px;
       line-height: 19px;
+    }
+  }
+
+  .carousel__button {
+      &_left,
+      &_right {
+        top: 130px;
+        font-size: 50px;
+      }
+    }
+
+  .advantage {
+    margin-bottom: 70px;
+    &__box {
+      padding-top: 169px;
+      h1 {
+        top: 101px;
+      }
+    }
+    &__imageBackground {
+      height: 160px;
+      width: 160px;
+    }
+    img {
+      width: 80px;
+    }
+    p {
+      margin-top: 34px;
+      font-size: 18px;
+      line-height: 22px;
+      width: 150px;
     }
   }
 }
