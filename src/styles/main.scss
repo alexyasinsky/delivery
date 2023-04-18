@@ -54,37 +54,7 @@ summary {
     outline: 0;
 }
 
-.guarantee {
-    &__box {
-        overflow: hidden;  
-    }
-    &__left, &__right {
-        position: absolute;
-        color: #B3B3B3;
-        z-index: 3;
-    }
-    &__left {
-        left: 0;
-        top: 160px;
-        font-size: 30px; 
-    }
-    &__right {
-        right: 0;
-        top: 160px;
-        font-size: 30px; 
-    }
-    &__circle {
-        background: #F7F7F7;
-        border-radius: 50%;
-        display: flex;
-    }
-    img {
-        margin: auto;
-    }
-    p {
-        display: block;
-    }
-}
+
 
 .doubt {
     width: 100%;
@@ -285,59 +255,7 @@ footer {
 
 
 
-    .guarantee {
-        position: absolute;
-        z-index: 1;
-        transition: left 0.4s, visibility 0.4s;
-        padding: 0 25px;
-        top: 70px;
-        width: 230px;
-        &__previous {
-            left: -800px;
-        }
-        &__next {
-            left: 800px;
-        }
-        &__current {
-            left: 0;
-        }
-        &__previous, &__next {
-            visibility: hidden;
-        }
-        &__box {
-            padding-top: 27px;
-            height: 300px;
-            position: relative;
-            h1 {
-                font-size: 28px;
-            }
-        }
-        &__block {
-            display: flex;
-            align-items: center;
-        }
-        &__circle {
-            height: 62px;
-            width: 62px;
-            margin-right: 10px;
-        }
-        img {
-            width: 28px;
-        }
-        h2 {
-            font-size: 16px;
-            line-height: 19px;
-        }
-        p {
-            margin-top: 15px;
-            font-size: 12px;
-            line-height: 14px;
-            height: 90px;
-        }
-        .button {
-            width: 230px;
-        }
-    }
+    
 
     .doubt {
         padding-bottom: 10px;
@@ -542,54 +460,7 @@ footer {
 
 
 
-    .guarantee {
-        position: unset;
-        padding: 0 0;
-        width: 217px;
-        &__previous, &__next {
-            visibility: unset;
-        }
-        &__cards {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-        }
-        &__box {
-            padding: 45px 5% 0 5%;
-            height: 435px;
-            position: unset;
-            margin: 0;
-            h1 {
-                font-size: 28px;
-            }
-        }
-        &__left, &__right {
-            display: none;
-        }
-        &__block {
-            display: unset;
-        }
-        &__circle {
-            height: 100px;
-            width: 100px;
-            margin-right: 0;
-        }
-        img {
-            width: 45px;
-        }
-        h2 {
-            margin-top: 18px;
-            font-size: 20px;
-            line-height: 24px;
-        }
-        p {
-            margin-top: 15px;
-            height: 115px;
-        }
-        .button {
-            width: 217px;
-        }
-    }
+
 
     .doubt {
         &__box {
@@ -791,38 +662,6 @@ footer {
 
 
 
-    .guarantee {
-        width: 360px;
-        &__cards {
-            margin-top: 40px;
-        }
-        &__box {
-            padding: 80px 10% 0 10%;
-            margin: 0;
-            height: 612px;
-        }
-        &__circle {
-            height: 160px;
-            width: 160px;
-        }
-        img {
-            width: 75px;
-        }
-        h2 {
-            margin-top: 32px;
-            font-size: 30px;
-            line-height: 36px;
-        }
-        p {
-            margin-top: 15px;
-            font-size: 16px;
-            line-height: 19px;
-            height: 115px;
-        }
-        .button {
-            width: 360px;
-        }
-    }
 
     .doubt {
         &__box {
