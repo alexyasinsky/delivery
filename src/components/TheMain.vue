@@ -109,6 +109,33 @@ const guarantees = [
     text: 'Мы работаем с самыми надежными и известными операторами доставки. Проверка надежности курьерской компании, экспертная оценка качества предоставляемых услуг',
   },
 ];
+
+const doubts = [
+  {
+    text: "На бумажную волокиту уйдет много времени, а мне нужно доставить срочно!",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+  },
+  {
+    text: "Мне необходимо совершить доставку по нескольким адресам, нужно много чего заполнять",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+  },
+  {
+    text: "Вы не сможете доставить посылку за границу",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+  },
+  {
+    text: "Вы не занимаетесь такими простыми грузами, как мебель",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+  },
+  {
+    text: "Я отправляю вместе с коллегами, мы можем легко запутаться, где чье",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+  },
+  {
+    text: "Нужно заполнять кучу документов",
+    answer: "Это не так. Вам нужно заполнить и подписать всего один документ, который распространяется на все службы доставки, которые будут доставлять Вашу посылку"
+  }
+]
 </script>
 
 <template>
@@ -223,10 +250,22 @@ const guarantees = [
         </div>
       </div>
     </section>
+    <section class="doubt__box padding-site">
+      <h2>Остались сомнения?</h2>
+      <div class="doubt__block">
+        <div v-for="(doubt, ind) of doubts" :key="ind" class="doubt__block">
+          <details class="doubt">
+            <summary>{{ doubt.text }}</summary>
+            <p>{{ doubt.answer }}</p>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
+
 .info {
   background-color: #f7f7f7;
   img {
@@ -271,6 +310,7 @@ const guarantees = [
     float: left;
   }
 }
+
 .advantage {
   &__box {
     background: #f7f7f7;
@@ -305,6 +345,44 @@ const guarantees = [
     img {
       margin: auto;
     }
+  }
+}
+
+.doubt {
+  &__box {
+    background: #D2ECF7;
+    h2 {
+      text-transform: uppercase;
+    }
+  }
+  summary {
+    border: 0;
+    border-radius: 32px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &::-webkit-details-marker {
+      display: none;
+    }
+    &::after {
+      content: "\f078";
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #008DCD;
+    }
+  }
+  &[open] summary {
+    &::after {
+      content: "\f077";
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #008DCD;
+    }
+  }
+  p {
+    background: #F7F7F7;
+    border: 0;
   }
 }
 
@@ -410,6 +488,7 @@ const guarantees = [
       line-height: 14px;
     }
   }
+
   .advantage {
     margin: 0 5px;
     &__box {
@@ -479,6 +558,42 @@ const guarantees = [
     }
     &__button {
       width: 228px;
+    }
+  }
+
+  .doubt {
+    width: 100%;
+    padding-bottom: 10px;
+    &__box {
+      padding-top: 25px;
+      padding-bottom: 25px;
+      h2 {
+        font-size: 28px;
+        line-height: 34px;
+        margin-bottom: 25px;
+      }
+    }
+    summary {
+      padding: 0 24px;
+      font-size: 14px;
+      line-height: 17px;
+      height: 80px;
+      &::after {
+        margin-left: 10px;
+      }
+    }
+    &[open] summary {
+      border-radius: 32px 32px 0 0;
+      &::after {
+        margin-left: 10px;
+      }
+    }
+    p {
+      font-size: 14px;
+      line-height: 17px;
+      border-radius: 0 0 32px 32px;
+      padding: 20px 24px;
+      margin-top: -10px;
     }
   }
 }
@@ -650,9 +765,42 @@ const guarantees = [
       width: 217px;
     }
   }
+
+  .doubt {
+    &__box {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      h2 {
+        font-size: 36px;
+        line-height: 43px;
+        margin-bottom: 25px;
+      }
+    }
+    summary {
+      padding: 0 30px;
+      font-size: 16px;
+      line-height: 19px;
+      height: 48px;
+      &::after {
+        margin-left: unset;
+      }
+    }
+    &[open] summary {
+      &::after {
+        margin-left: unset;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 19px;
+      padding: 20px 30px;
+      margin-top: -10px;
+    }
+  }
 }
 
 @media (min-width: 1440px) {
+
   .info {
     padding-top: 95px;
     height: 362px;
@@ -806,6 +954,28 @@ const guarantees = [
     }
     &__button {
       width: 360px;
+    }
+  }
+
+  .doubt {
+    width: 560px;
+    &__box {
+      padding-top: 64px;
+      h2 {
+        margin-bottom: 40px;
+      }
+    }
+    &__block {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    summary {
+      height: 64px;
+    }
+    p {
+      padding: 30px;
+      margin-top: -10px;
     }
   }
 }

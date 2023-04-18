@@ -26,6 +26,10 @@ li {
     list-style-type: none;
 }
 
+summary {
+    outline: 0;
+}
+
 .button {
     font-size: 16px;
     line-height: 19px;
@@ -50,50 +54,11 @@ li {
     margin-right: auto;
 }
 
-summary {
-    outline: 0;
-}
 
 
 
-.doubt {
-    width: 100%;
-    &__box {
-        background: #D2ECF7;
-        h1 {
-            text-transform: uppercase;
-        }
-    }
-    summary {
-    border: 0;
-    border-radius: 32px;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-        &::-webkit-details-marker {
-            display: none;
-        }
-        &::after {
-            content: "\f078";
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900; 
-            color: #008DCD;
-        }
-    }
-    &[open] summary {
-        &::after {
-            content: "\f077";
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900; 
-            color: #008DCD;
-        } 
-    }
-    p {
-        background: #F7F7F7;
-        border: 0;
-    } 
-}
+
+
 
 .partner {
     &__box {
@@ -257,40 +222,7 @@ footer {
 
     
 
-    .doubt {
-        padding-bottom: 10px;
-        &__box {
-            padding-top: 25px;
-            padding-bottom: 25px;
-            h1 {
-                font-size: 28px;
-                line-height: 34px;
-                margin-bottom: 25px;
-            }
-        }
-        summary {
-        padding: 0 24px;
-        font-size: 14px;
-        line-height: 17px;
-        height: 80px;
-            &::after {
-                margin-left: 10px;
-            }
-        }
-        &[open] summary {
-            border-radius: 32px 32px 0 0;
-            &::after {
-                margin-left: 10px;
-            } 
-        }
-        p {
-            font-size: 14px;
-            line-height: 17px;
-            border-radius: 0 0 32px 32px;
-            padding: 20px 24px;
-            margin-top: -10px;
-        } 
-    }
+
 
     .partner {
         width: 66px;
@@ -462,37 +394,7 @@ footer {
 
 
 
-    .doubt {
-        &__box {
-            padding-top: 40px;
-            padding-bottom: 40px;
-            h1 {
-                font-size: 36px;
-                line-height: 43px;
-                margin-bottom: 25px;
-            }
-        }
-        summary {
-        padding: 0 30px;
-        font-size: 16px;
-        line-height: 19px;
-        height: 48px;
-            &::after {
-                margin-left: unset;
-            }
-        }
-        &[open] summary {
-            &::after {
-                margin-left: unset;
-            } 
-        }
-        p {
-            font-size: 16px;
-            line-height: 19px;
-            padding: 20px 30px;
-            margin-top: -10px;
-        } 
-    }
+
 
     .partner {
         margin-bottom: unset;
@@ -663,28 +565,7 @@ footer {
 
 
 
-    .doubt {
-        &__box {
-            padding-top: 64px;
-            h1 {
-                margin-bottom: 40px;
-            }
-        }
-        &__block {
-            width: 558px;
-        }
-        &__blocks {
-            display: flex;
-            justify-content: space-between;
-        }
-        summary {
-        height: 64px;
-        }
-        p {
-            padding: 30px;
-            margin-top: -10px;
-        } 
-    }
+
 
     .partner {
         width: 94px;
