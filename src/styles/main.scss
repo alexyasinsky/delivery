@@ -54,41 +54,6 @@ summary {
     margin-right: auto;
 }
 
-
-
-
-
-
-
-.partner {
-    &__box {
-        position: relative;
-    }
-    &__slider {
-        position: relative;
-        overflow: hidden; 
-    }
-    &__slide {
-        position: absolute;
-        transition: left 0.4s, visibility 0.4s;
-        z-index: 1;
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-    }
-    &__left, &__right {
-        position: absolute;
-        color: #B3B3B3;
-        z-index: 3;
-    }
-    &__current {
-        left: 0;
-    }
-    &__previous, &__next {
-        visibility: hidden;
-    }
-}
-
 footer {
     background: #E9E9E9;
     hr {
@@ -224,39 +189,7 @@ footer {
 
 
 
-    .partner {
-        width: 66px;
-        margin-bottom: 6px;
-        &__box {
-            height: 124px;
-            padding-top: 17px;
-        }
-        &__slider {
-            height: 90px;
-        }
-        &__slide {
-            width: 230px;
-            padding: 0 25px;
-            overflow: hidden;
-            flex-wrap: wrap;
-        }
-        &__left, &__right {
-            top: 51px;
-            font-size: 30px;
-        }
-        &__left {
-            left: 0;
-        }
-        &__right {
-            right: 0;
-        }
-        &__previous {
-            left: -800px;
-        }
-        &__next {
-            left: 800px;
-        }
-    }
+    
 
     footer {
         hr {
@@ -396,33 +329,7 @@ footer {
 
 
 
-    .partner {
-        margin-bottom: unset;
-        &__box {
-            height: 75px;
-            padding-top: 37px;
-        }
-        &__slider {
-            height: 42px;
-        }
-        &__slide {
-            width: 600px;
-            padding: 0 30px;
-            overflow: unset;
-            height: 42px;
-            flex-wrap: unset;
-        }
-        &__left, &__right {
-            top: 44px;
-            font-size: 30px;
-        }
-        &__previous {
-            left: -1200px;
-        }
-        &__next {
-            left: 1800px;
-        }
-    }
+    
 
     footer {
         hr {
@@ -567,32 +474,7 @@ footer {
 
 
 
-    .partner {
-        width: 94px;
-        &__box {
-            height: 112px;
-            padding-top: 58px;
-        }
-        &__slider {
-            height: 60px;
-        }
-        &__slide {
-            width: 960px;
-            padding: 0 100px;
-            height: 60px;
-        }
-        &__left, &__right {
-            top: 65px;
-            font-size: 50px;
-        }
-        &__previous {
-            left: -5200px;
-        }
-        &__next {
-            left: 4200px;
-        }
-    }
-
+    
     footer {
         hr {
             margin: 0 10%;

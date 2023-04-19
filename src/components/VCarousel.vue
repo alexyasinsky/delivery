@@ -27,7 +27,8 @@ function previousSlide() {
     >
       ❯
     </button>
-    <carousel
+    <div class="carousel__wrapper">
+      <carousel
       :wrap-around="true"
       snapAlign="start"
       :breakpoints="props.breakpoints"
@@ -35,6 +36,8 @@ function previousSlide() {
     >
       <slot></slot>
     </carousel>
+    </div>
+    
   </div>
 </template>
 
@@ -53,13 +56,17 @@ function previousSlide() {
       right: 0;
     }
   }
+  &__wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media (min-width: 320px) {
   .carousel__button {
     &_left,
     &_right {
-      top: 100px;
+      top: 30%;
       font-size: 30px;
     }
   }
@@ -78,7 +85,6 @@ function previousSlide() {
   .carousel__button {
     &_left,
     &_right {
-      top: 130px;
       font-size: 50px;
     }
   }

@@ -65,6 +65,18 @@ const guaranteesCarouselBreakpoints = {
   },
 };
 
+const partnersCarouselBreakpoints = {
+  320: {
+    itemsToShow: 2,
+  },
+  768: {
+    itemsToShow: 4,
+  },
+  1440: {
+    itemsToShow: 8,
+  },
+};
+
 const advantages = [
   {
     image: 'advantage1',
@@ -112,30 +124,47 @@ const guarantees = [
 
 const doubts = [
   {
-    text: "На бумажную волокиту уйдет много времени, а мне нужно доставить срочно!",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+    text: 'На бумажную волокиту уйдет много времени, а мне нужно доставить срочно!',
+    answer:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?',
   },
   {
-    text: "Мне необходимо совершить доставку по нескольким адресам, нужно много чего заполнять",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+    text: 'Мне необходимо совершить доставку по нескольким адресам, нужно много чего заполнять',
+    answer:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?',
   },
   {
-    text: "Вы не сможете доставить посылку за границу",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+    text: 'Вы не сможете доставить посылку за границу',
+    answer:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?',
   },
   {
-    text: "Вы не занимаетесь такими простыми грузами, как мебель",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+    text: 'Вы не занимаетесь такими простыми грузами, как мебель',
+    answer:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?',
   },
   {
-    text: "Я отправляю вместе с коллегами, мы можем легко запутаться, где чье",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?"
+    text: 'Я отправляю вместе с коллегами, мы можем легко запутаться, где чье',
+    answer:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cupiditate dolor dolorem doloremque ea eius enim, expedita fuga impedit iusto laborum laudantium libero officia perferendis quis quisquam ratione veritatis vero?',
   },
   {
-    text: "Нужно заполнять кучу документов",
-    answer: "Это не так. Вам нужно заполнить и подписать всего один документ, который распространяется на все службы доставки, которые будут доставлять Вашу посылку"
-  }
-]
+    text: 'Нужно заполнять кучу документов',
+    answer:
+      'Это не так. Вам нужно заполнить и подписать всего один документ, который распространяется на все службы доставки, которые будут доставлять Вашу посылку',
+  },
+];
+
+const partners = [
+  'bringo',
+  'cdek',
+  'city_express',
+  'dpd',
+  'pony',
+  'spsr',
+  'tnt',
+  'ups',
+];
 </script>
 
 <template>
@@ -261,11 +290,20 @@ const doubts = [
         </div>
       </div>
     </section>
+    <section class="partner__box padding-site">
+      <v-carousel :breakpoints="partnersCarouselBreakpoints">
+        <slide v-for="(partner, ind) of partners" :key="ind">
+            <a href="#" 
+            ><img :src="`/src/assets/img/${partner}.png`" :alt="partner"
+          /></a>
+          
+        </slide>
+      </v-carousel>
+    </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
-
 .info {
   background-color: #f7f7f7;
   img {
@@ -319,9 +357,9 @@ const doubts = [
     }
   }
   &__wrapper {
-      display: flex;
-      flex-wrap: wrap;
-    }
+    display: flex;
+    flex-wrap: wrap;
+  }
   &__imageBackground {
     border-radius: 50%;
     background-color: white;
@@ -350,7 +388,7 @@ const doubts = [
 
 .doubt {
   &__box {
-    background: #D2ECF7;
+    background: #d2ecf7;
     h2 {
       text-transform: uppercase;
     }
@@ -366,25 +404,26 @@ const doubts = [
       display: none;
     }
     &::after {
-      content: "\f078";
+      content: '\f078';
       font-family: 'Font Awesome 6 Free';
       font-weight: 900;
-      color: #008DCD;
+      color: #008dcd;
     }
   }
   &[open] summary {
     &::after {
-      content: "\f077";
+      content: '\f077';
       font-family: 'Font Awesome 6 Free';
       font-weight: 900;
-      color: #008DCD;
+      color: #008dcd;
     }
   }
   p {
-    background: #F7F7F7;
+    background: #f7f7f7;
     border: 0;
   }
 }
+
 
 @media (min-width: 320px) {
   .info {
@@ -509,8 +548,8 @@ const doubts = [
       height: 86px;
       width: 86px;
       img {
-      width: 40px;
-    }
+        width: 40px;
+      }
     }
     p {
       margin-top: 10px;
@@ -594,6 +633,13 @@ const doubts = [
       border-radius: 0 0 32px 32px;
       padding: 20px 24px;
       margin-top: -10px;
+    }
+  }
+
+  .partner {
+    &__box {
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
   }
 }
@@ -797,10 +843,16 @@ const doubts = [
       margin-top: -10px;
     }
   }
+
+  .partner {
+    &__box {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
 }
 
 @media (min-width: 1440px) {
-
   .info {
     padding-top: 95px;
     height: 362px;
@@ -976,6 +1028,13 @@ const doubts = [
     p {
       padding: 30px;
       margin-top: -10px;
+    }
+  }
+
+  .partner {
+    &__box {
+      padding-top: 60px;
+      padding-bottom: 60px;
     }
   }
 }
