@@ -2,6 +2,7 @@
 import TheHeader from './components/TheHeader.vue';
 import TheLeading from './components/TheLeading.vue';
 import TheMain from './components/TheMain.vue';
+import TheFooter from "./components/TheFooter.vue";
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import TheMain from './components/TheMain.vue';
       <the-header></the-header>
     </the-leading>
     <the-main />
+    <the-footer/>
   </div>
 </template>
 

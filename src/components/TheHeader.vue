@@ -15,9 +15,9 @@ import VLogo from './VLogo.vue';
 </template>
 
 <style lang="scss" scoped>
-header {
-  display: flex;
-  justify-content: space-between;
-}
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
 
 </style>

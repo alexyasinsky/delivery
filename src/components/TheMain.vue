@@ -211,11 +211,11 @@ const partners = [
                 :src="`src/assets/img/${feedback.image}.png`"
                 :alt="feedback.image"
               />
-              <h5 class="feedback__name">{{ feedback.name }}</h5>
-              <h6 class="feedback__company">{{ feedback.company }}</h6>
-              <p class="feedback__desc">Посылка: {{ feedback.package }}</p>
-              <p class="feedback__desc">Откуда: {{ feedback.departure }}</p>
-              <p class="feedback__desc">Куда: {{ feedback.destination }}</p>
+              <h3 class="feedback__name">{{ feedback.name }}</h3>
+              <h4 class="feedback__company">{{ feedback.company }}</h4>
+              <p class="feedback__attribute">Посылка: {{ feedback.package }}</p>
+              <p class="feedback__attribute">Откуда: {{ feedback.departure }}</p>
+              <p class="feedback__attribute">Куда: {{ feedback.destination }}</p>
             </div>
             <p class="feedback__text">{{ feedback.text }}</p>
           </div>
@@ -230,7 +230,7 @@ const partners = [
           :key="ind"
           class="advantage"
         >
-          <div class="advantage__imageBackground">
+          <div class="advantage__image">
             <img
               :src="`src/assets/img/${advantage.image}.png`"
               :alt="advantage.image"
@@ -293,10 +293,10 @@ const partners = [
     <section class="partner__box padding-site">
       <v-carousel :breakpoints="partnersCarouselBreakpoints">
         <slide v-for="(partner, ind) of partners" :key="ind">
-            <a href="#" 
+            <a href="#"
             ><img :src="`/src/assets/img/${partner}.png`" :alt="partner"
           /></a>
-          
+
         </slide>
       </v-carousel>
     </section>
@@ -360,7 +360,7 @@ const partners = [
     display: flex;
     flex-wrap: wrap;
   }
-  &__imageBackground {
+  &__image {
     border-radius: 50%;
     background-color: white;
     display: flex;
@@ -517,7 +517,7 @@ const partners = [
       margin: 10px 0;
       font-size: 18px;
     }
-    &__desc {
+    &__attribute {
       font-size: 10px;
       margin-bottom: 5px;
     }
@@ -543,8 +543,9 @@ const partners = [
     &__wrapper {
       margin-left: -5px;
       margin-right: -5px;
+      height: 290px;
     }
-    &__imageBackground {
+    &__image {
       height: 86px;
       width: 86px;
       img {
@@ -755,8 +756,9 @@ const partners = [
     &__wrapper {
       margin: 0;
       justify-content: space-between;
+      height: fit-content;
     }
-    &__imageBackground {
+    &__image {
       height: 100px;
       width: 100px;
     }
@@ -942,7 +944,7 @@ const partners = [
       margin: 15px 0;
       font-size: 24px;
     }
-    &__desc {
+    &__attribute {
       font-size: 16px;
       margin-bottom: 5px;
     }
@@ -961,7 +963,7 @@ const partners = [
         top: 101px;
       }
     }
-    &__imageBackground {
+    &__image {
       height: 160px;
       width: 160px;
     }

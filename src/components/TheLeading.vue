@@ -5,8 +5,8 @@
 <template>
   <div class="leading padding-site">
     <slot></slot>
-    <h1 class="leading__h1">Придумайте, что отправить</h1>
-    <h2 class="leading__h2">А посылка доедет сама</h2>
+    <h1>Придумайте, что отправить</h1>
+    <p>А посылка доедет сама</p>
     <form action="#">
       <v-button color-style="white-blue" value="Отправить посылку" />
     </form>
@@ -17,11 +17,11 @@
 .leading {
   padding-top: 27px;
   background-image: url('../assets/img/back-sm.png');
-  &__h1 {
+  h1 {
     text-transform: uppercase;
     font-weight: bold;
   }
-  &__h2 {
+  p {
     font-weight: bold;
   }
 }
@@ -32,12 +32,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 277px;
-    &__h1 {
+    h1 {
       margin-top: 262px;
       font-size: 32px;
       color: #000000;
     }
-    &__h2 {
+    p {
       margin-top: 12px;
       font-size: 24px;
       color: #000000;
@@ -52,14 +52,14 @@
     background-size: cover;
     height: 415px;
     margin-bottom: 0;
-    &__h1 {
+    h1 {
       margin-top: 55px;
       font-size: 44px;
       line-height: 53px;
       color: #ffffff;
       width: 60%;
     }
-    &__h2 {
+    p {
       margin-top: 20px;
       font-size: 28px;
       color: #ffffff;
@@ -72,10 +72,10 @@
   .leading {
     background-image: url('../assets/img/back-b.png');
     height: 525px;
-    &__h1 {
+    h1 {
       margin-top: 88px;
     }
-    &__h2 {
+    p {
       margin-top: 36px;
       margin-bottom: 40px;
     }
