@@ -1,18 +1,15 @@
 <script setup>
-import { computed } from 'vue';
 import VButton from './VButton.vue';
 
 const props = defineProps(['direction', 'colorStyle']);
-
-const formStyle = computed(() => {
-  return `${props.direction} ${props.colorStyle}`;
-});
 </script>
 
 <template>
-  <form action="#" :class="formStyle">
-    <input type="tel" placeholder="Ваш телефон" id="tel" />
-    <v-button :colorStyle="colorStyle" value="заказать звонок" />
+  <form action="#" :class="colorStyle">
+    <div :class="direction">
+      <input type="tel" placeholder="Ваш телефон" id="tel" />
+      <v-button :colorStyle="colorStyle" value="заказать звонок" />
+    </div>
     <div class="agreement">
       <input type="checkbox" id="personal-data" />
       <label for="personal-data"
@@ -24,7 +21,6 @@ const formStyle = computed(() => {
 
 <style lang="scss" scoped>
 form {
-  display: flex;
   input[type='tel'] {
     border-width: 1px;
     border-style: solid;
@@ -55,10 +51,12 @@ form {
 }
 
 .row {
+  display: flex;
   flex-direction: row;
 }
 
 .column {
+  display: flex;
   flex-direction: column;
 }
 
@@ -83,6 +81,21 @@ form {
   }
   .agreement label {
     color: #9e9e9e;
+  }
+}
+@media (min-width: 768px) {
+  .row {
+    input[type='tel'] {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .row {
+    input[type='tel'] {
+      margin-right: 30px;
+    }
   }
 }
 </style>

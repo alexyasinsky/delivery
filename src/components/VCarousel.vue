@@ -50,7 +50,7 @@ function previousSlide() {
   &__button {
     position: absolute;
     color: #b3b3b3;
-    z-index: 3;
+    z-index: 1;
     background: 0;
     &_left {
       left: 0;

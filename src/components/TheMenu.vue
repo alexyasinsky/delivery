@@ -3,6 +3,8 @@ import FeedbackForm from './FeedbackForm.vue';
 import SocialMedia from './SocialMedia.vue';
 import VLogo from './VLogo.vue';
 
+const props = defineProps(['controlsTheme']);
+
 const menu = [
   'Главная',
   'Отзывы',
@@ -12,6 +14,8 @@ const menu = [
   'Преимущества',
   'FAQ',
 ];
+
+const socialMediaIcons = ['vk', 'instagram', 'facebook-f'];
 
 function showMenu() {
   return (document.querySelector('.menu_s').style.left = 0);
@@ -23,7 +27,7 @@ function hideMenu() {
 </script>
 
 <template>
-  <button class="menu__button menu__button_open" @click="showMenu">
+  <button :class="`menu__button menu__${controlsTheme}Theme`" @click="showMenu">
     <font-awesome-icon :icon="['fas', 'bars']" />
   </button>
   <nav class="menu_s">
@@ -42,8 +46,12 @@ function hideMenu() {
       <label :for="`menu-s-${item}`">{{ item }}</label>
     </div>
     <h3>ОСТАЛИСЬ ВОПРОСЫ?</h3>
-    <feedback-form direction="column" color-style="white-blue"/>
-    <social-media />
+    <feedback-form direction="column" color-style="white-blue" />
+    <div class="menu__social-media">
+      <div v-for="(icon, ind) in socialMediaIcons" :key="ind">
+        <social-media :icon="icon" size="large" />
+      </div>
+    </div>
   </nav>
   <nav class="menu_mb">
     <div class="menu__item" v-for="(item, ind) in menu" :key="ind">
@@ -54,7 +62,7 @@ function hideMenu() {
         :id="`menu-ml-${item}`"
         :checked="ind === 0"
       />
-      <label :for="`menu-ml-${item}`">{{ item }}</label>
+      <label :class="`menu__${controlsTheme}Theme`" :for="`menu-ml-${item}`">{{ item }}</label>
     </div>
   </nav>
 </template>
@@ -62,7 +70,7 @@ function hideMenu() {
 <style lang="scss" scoped>
 .menu {
   &_s {
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 100%;
@@ -84,16 +92,10 @@ function hideMenu() {
   }
   &_mb {
     display: flex;
-    label {
-      color: #ffffff;
-    }
   }
   &__button {
     background: 0;
     font-size: 36px;
-    &_open {
-      color: #ffffff;
-    }
     &_close {
       color: #000000;
       float: right;
@@ -116,6 +118,19 @@ function hideMenu() {
     label:hover {
       color: #008dcd;
     }
+  }
+
+  &__social-media {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__lightTheme {
+    color: #ffffff;
+  }
+
+  &__darkTheme {
+    color: #000000;
   }
 }
 
