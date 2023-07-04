@@ -169,7 +169,7 @@ const partners = [
 
 <template>
   <main>
-    <section class="info padding-site">
+    <section class="info info__section padding-site">
       <img src="../assets/img/robot.png" alt="robot" />
       <h2>Мы – агрегатор служб доставки</h2>
       <p>
@@ -181,32 +181,32 @@ const partners = [
         <v-button colorStyle="white-blue" value="Отправить посылку" />
       </form>
     </section>
-    <section class="step__box padding-site">
+    <section class="step__section padding-site">
       <div class="step" v-for="(step, ind) of steps" :key="ind">
         <img :src="`src/assets/img/${step.image}.png`" :alt="step.image" />
         <h3>{{ step.title }}</h3>
         <p>{{ step.text }}</p>
       </div>
     </section>
-    <section class="offer padding-site">
+    <section class="offer offer__section padding-site">
       <h2>Мы берём все заботы по доставке на себя!</h2>
       <form action="#">
         <v-button colorStyle="white-blue" value="Отправить посылку" />
       </form>
     </section>
-    <section class="callback padding-site">
+    <section class="callback callback__section padding-site">
       <div>
         <h2>хотите мы вам перезвоним?</h2>
         <p>Закажите звонок, и менеджер вам всё расскажет и объяснит</p>
       </div>
       <feedback-form direction="column" color-style="blue-yellow" />
     </section>
-    <section class="feedback__box padding-site">
+    <section class="feedback__section padding-site">
       <h2>ОТЗЫВЫ</h2>
       <v-carousel :breakpoints="feedbackCarouselBreakpoints">
         <slide v-for="feedback of feedbacks" :key="feedback.id">
           <div class="feedback">
-            <div>
+            <div class="feedback__box">
               <img
                 :src="`src/assets/img/${feedback.image}.png`"
                 :alt="feedback.image"
@@ -214,17 +214,21 @@ const partners = [
               <h3 class="feedback__name">{{ feedback.name }}</h3>
               <h4 class="feedback__company">{{ feedback.company }}</h4>
               <p class="feedback__attribute">Посылка: {{ feedback.package }}</p>
-              <p class="feedback__attribute">Откуда: {{ feedback.departure }}</p>
-              <p class="feedback__attribute">Куда: {{ feedback.destination }}</p>
+              <p class="feedback__attribute">
+                Откуда: {{ feedback.departure }}
+              </p>
+              <p class="feedback__attribute">
+                Куда: {{ feedback.destination }}
+              </p>
             </div>
             <p class="feedback__text">{{ feedback.text }}</p>
           </div>
         </slide>
       </v-carousel>
     </section>
-    <section class="advantage__box padding-site">
+    <section class="advantage__section padding-site">
       <h2>НАШИ ПРЕИМУЩЕСТВА</h2>
-      <div class="advantage__wrapper">
+      <div class="advantage__list">
         <div
           v-for="(advantage, ind) in advantages"
           :key="ind"
@@ -240,14 +244,14 @@ const partners = [
         </div>
       </div>
     </section>
-    <section class="guarantee__box margin-site">
+    <section class="guarantee__section margin-site">
       <h2>НАШИ ГАРАНТИИ</h2>
       <div class="guarantee__s">
         <v-carousel :breakpoints="guaranteesCarouselBreakpoints">
           <slide v-for="(guarantee, ind) of guarantees" :key="ind">
             <div class="guarantee">
-              <div class="guarantee__card">
-                <div class="guarantee__circle">
+              <div class="guarantee__box">
+                <div class="guarantee__image">
                   <img
                     :src="`src/assets/img/${guarantee.image}.png`"
                     :alt="guarantee.image"
@@ -267,7 +271,7 @@ const partners = [
           :key="ind"
           class="guarantee"
         >
-          <div class="guarantee__circle">
+          <div class="guarantee__image">
             <img
               :src="`src/assets/img/${guarantee.image}.png`"
               :alt="guarantee.image"
@@ -279,10 +283,10 @@ const partners = [
         </div>
       </div>
     </section>
-    <section class="doubt__box padding-site">
+    <section class="doubt__section padding-site">
       <h2>Остались сомнения?</h2>
-      <div class="doubt__block">
-        <div v-for="(doubt, ind) of doubts" :key="ind" class="doubt__block">
+      <div class="doubt__list">
+        <div v-for="(doubt, ind) of doubts" :key="ind">
           <details class="doubt">
             <summary>{{ doubt.text }}</summary>
             <p>{{ doubt.answer }}</p>
@@ -290,13 +294,12 @@ const partners = [
         </div>
       </div>
     </section>
-    <section class="partner__box padding-site">
+    <section class="partner__section padding-site">
       <v-carousel :breakpoints="partnersCarouselBreakpoints">
         <slide v-for="(partner, ind) of partners" :key="ind">
-            <a href="#"
+          <a href="#"
             ><img :src="`/src/assets/img/${partner}.png`" :alt="partner"
           /></a>
-
         </slide>
       </v-carousel>
     </section>
@@ -305,7 +308,9 @@ const partners = [
 
 <style lang="scss" scoped>
 .info {
-  background-color: #f7f7f7;
+  &__section {
+    background-color: #f7f7f7;
+  }
   img {
     display: block;
     margin-left: auto;
@@ -315,7 +320,7 @@ const partners = [
 }
 
 .step {
-  &__box {
+  &__section {
     display: flex;
     flex-direction: column;
   }
@@ -327,13 +332,17 @@ const partners = [
 }
 
 .offer {
-  background-color: #f7f7f7;
+  &__section {
+    background-color: #f7f7f7;
+  }
 }
 
 .callback {
-  background: #008dcd;
-  display: flex;
-  justify-content: space-between;
+  &__section {
+    background: #008dcd;
+    display: flex;
+    justify-content: space-between;
+  }
   h2 {
     text-transform: uppercase;
     color: #ffffff;
@@ -350,13 +359,13 @@ const partners = [
 }
 
 .advantage {
-  &__box {
+  &__section {
     background: #f7f7f7;
     h2 {
       width: 85%;
     }
   }
-  &__wrapper {
+  &__list {
     display: flex;
     flex-wrap: wrap;
   }
@@ -376,7 +385,7 @@ const partners = [
 
 .guarantee {
   text-align: left;
-  &__circle {
+  &__image {
     background: #f7f7f7;
     border-radius: 50%;
     display: flex;
@@ -387,7 +396,7 @@ const partners = [
 }
 
 .doubt {
-  &__box {
+  &__section {
     background: #d2ecf7;
     h2 {
       text-transform: uppercase;
@@ -424,12 +433,13 @@ const partners = [
   }
 }
 
-
 @media (min-width: 320px) {
   .info {
-    margin-top: 227px;
-    padding-top: 17px;
-    height: 354px;
+    &__section {
+      margin-top: 227px;
+      padding-top: 17px;
+      height: 354px;
+    }
     img {
       width: 278px;
     }
@@ -464,7 +474,9 @@ const partners = [
   }
 
   .offer {
-    padding-bottom: 23px;
+    &__section {
+      padding-bottom: 23px;
+    }
     h2 {
       display: block;
       padding-top: 23px;
@@ -477,9 +489,11 @@ const partners = [
   }
 
   .callback {
-    padding-top: 23px;
-    padding-bottom: 8px;
-    flex-direction: column;
+    &__section {
+      padding-top: 23px;
+      padding-bottom: 8px;
+      flex-direction: column;
+    }
     h2 {
       font-size: 28px;
       line-height: 34px;
@@ -496,7 +510,7 @@ const partners = [
     text-align: left;
     padding: 0 25px;
     max-width: 500px;
-    &__box {
+    &__section {
       padding-top: 21px;
       padding-bottom: 21px;
       h2 {
@@ -530,7 +544,7 @@ const partners = [
 
   .advantage {
     margin: 0 5px;
-    &__box {
+    &__section {
       padding-top: 21px;
       padding-bottom: 21px;
       h2 {
@@ -540,7 +554,7 @@ const partners = [
         margin-bottom: 20px;
       }
     }
-    &__wrapper {
+    &__list {
       margin-left: -5px;
       margin-right: -5px;
       height: 290px;
@@ -565,7 +579,7 @@ const partners = [
     &__ml {
       display: none;
     }
-    &__box {
+    &__section {
       padding-top: 27px;
       padding-bottom: 27px;
       h2 {
@@ -573,11 +587,11 @@ const partners = [
         margin-bottom: 15px;
       }
     }
-    &__card {
+    &__box {
       display: flex;
       align-items: center;
     }
-    &__circle {
+    &__image {
       height: 62px;
       width: 62px;
       margin-right: 10px;
@@ -604,7 +618,7 @@ const partners = [
   .doubt {
     width: 100%;
     padding-bottom: 10px;
-    &__box {
+    &__section {
       padding-top: 25px;
       padding-bottom: 25px;
       h2 {
@@ -638,7 +652,7 @@ const partners = [
   }
 
   .partner {
-    &__box {
+    &__section {
       padding-top: 20px;
       padding-bottom: 20px;
     }
@@ -647,16 +661,20 @@ const partners = [
 
 @media (min-width: 513px) {
   .info {
-    margin-top: 195px;
+    &__section {
+      margin-top: 195px;
+    }
   }
 }
 
 @media (min-width: 768px) {
   .info {
-    margin-top: 0;
-    position: relative;
-    padding-top: 84px;
-    height: 230px;
+    &__section {
+      margin-top: 0;
+      position: relative;
+      padding-top: 84px;
+      height: 230px;
+    }
     img {
       float: right;
       width: 398px;
@@ -680,7 +698,7 @@ const partners = [
     padding-bottom: 0;
     margin: 25px 33px;
     width: 278px;
-    &__box {
+    &__section {
       padding-top: 12px;
       flex-direction: row;
       flex-wrap: wrap;
@@ -697,11 +715,13 @@ const partners = [
   }
 
   .offer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 124px;
-    padding-bottom: 0;
+    &__section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 124px;
+      padding-bottom: 0;
+    }
     h2 {
       display: block;
       padding-top: 0;
@@ -714,9 +734,11 @@ const partners = [
   }
 
   .callback {
-    padding-top: 32px;
-    padding-bottom: 14px;
-    flex-direction: row;
+    &__section {
+      padding-top: 32px;
+      padding-bottom: 14px;
+      flex-direction: row;
+    }
     h2,
     p {
       margin-right: 130px;
@@ -726,7 +748,7 @@ const partners = [
   .feedback {
     padding: 0 36px;
     max-width: 500px;
-    &__box {
+    &__section {
       padding-top: 52px;
       padding-bottom: 52px;
       h2 {
@@ -743,7 +765,7 @@ const partners = [
 
   .advantage {
     margin: 0;
-    &__box {
+    &__section {
       padding-top: 52px;
       padding-bottom: 52px;
       h2 {
@@ -753,7 +775,7 @@ const partners = [
         margin-bottom: 30px;
       }
     }
-    &__wrapper {
+    &__list {
       margin: 0;
       justify-content: space-between;
       height: fit-content;
@@ -784,7 +806,7 @@ const partners = [
       justify-content: space-between;
       margin-top: 15px;
     }
-    &__box {
+    &__section {
       padding: 45px 5% 0 5%;
       height: 435px;
       margin: 0;
@@ -792,7 +814,7 @@ const partners = [
         font-size: 36px;
       }
     }
-    &__circle {
+    &__image {
       height: 100px;
       width: 100px;
       margin: 0;
@@ -815,7 +837,7 @@ const partners = [
   }
 
   .doubt {
-    &__box {
+    &__section {
       padding-top: 40px;
       padding-bottom: 40px;
       h2 {
@@ -847,7 +869,7 @@ const partners = [
   }
 
   .partner {
-    &__box {
+    &__section {
       padding-top: 40px;
       padding-bottom: 40px;
     }
@@ -856,9 +878,11 @@ const partners = [
 
 @media (min-width: 1440px) {
   .info {
-    padding-top: 95px;
-    height: 362px;
-    position: unset;
+    &__section {
+      padding-top: 95px;
+      height: 362px;
+      position: unset;
+    }
     img {
       width: 660px;
       margin-left: 62px;
@@ -877,7 +901,7 @@ const partners = [
   .step {
     margin: 40px 0;
     width: 462px;
-    &__box {
+    &__section {
       padding-top: 18px;
     }
     img {
@@ -896,7 +920,9 @@ const partners = [
   }
 
   .offer {
-    height: 180px;
+    &__section {
+      height: 180px;
+    }
     h2 {
       font-size: 36px;
       line-height: 43px;
@@ -904,8 +930,10 @@ const partners = [
   }
 
   .callback {
-    height: 167px;
-    padding-top: 73px;
+    &__section {
+      height: 167px;
+      padding-top: 73px;
+    }
     h2,
     p {
       margin-right: 60px;
@@ -923,7 +951,7 @@ const partners = [
   .feedback {
     padding: 0 100px;
     max-width: 800px;
-    &__box {
+    &__section {
       padding-top: 69px;
       padding-bottom: 69px;
     }
@@ -956,7 +984,7 @@ const partners = [
   }
 
   .advantage {
-    &__box {
+    &__section {
       padding-top: 69px;
       padding-bottom: 69px;
       h2 {
@@ -983,12 +1011,12 @@ const partners = [
     &__ml {
       margin-top: 40px;
     }
-    &__box {
+    &__section {
       padding: 80px 10% 0 10%;
       margin: 0;
       height: 612px;
     }
-    &__circle {
+    &__image {
       height: 160px;
       width: 160px;
       img {
@@ -1013,13 +1041,13 @@ const partners = [
 
   .doubt {
     width: 560px;
-    &__box {
+    &__section {
       padding-top: 64px;
       h2 {
         margin-bottom: 40px;
       }
     }
-    &__block {
+    &__list {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -1034,7 +1062,7 @@ const partners = [
   }
 
   .partner {
-    &__box {
+    &__section {
       padding-top: 60px;
       padding-bottom: 60px;
     }

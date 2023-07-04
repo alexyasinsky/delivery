@@ -18,7 +18,10 @@ function previousSlide() {
 
 <template>
   <div class="carousel">
-    <button class="carousel__button carousel__button_left" @click="nextSlide">
+    <button 
+      class="carousel__button carousel__button_left" 
+      @click="nextSlide"
+      >
       ❮
     </button>
     <button
