@@ -3,6 +3,19 @@ import TheHeader from './components/TheHeader.vue';
 import TheLeading from './components/TheLeading.vue';
 import TheMain from './components/TheMain.vue';
 import TheFooter from "./components/TheFooter.vue";
+import VModalWindow from "./components/VModalWindow.vue"
+
+import {provide, ref} from 'vue'
+
+const modalWindowCase = ref('');
+
+function setModalWindowCase(caseName) {
+  modalWindowCase.value = caseName;
+}
+
+provide('setModalWindowCase', setModalWindowCase);
+
+
 </script>
 
 <template>
@@ -12,6 +25,10 @@ import TheFooter from "./components/TheFooter.vue";
     </the-leading>
     <the-main />
     <the-footer/>
+    <v-modal-window
+      v-if="modalWindowCase"
+      :case-name="modalWindowCase"
+    />
   </div>
 </template>
 

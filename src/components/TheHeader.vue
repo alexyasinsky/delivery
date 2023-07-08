@@ -1,6 +1,12 @@
 <script setup>
 import TheMenu from './TheMenu.vue';
 import VLogo from './VLogo.vue';
+import {inject} from "vue";
+
+const setModalWindowCase = inject('setModalWindowCase');
+
+setModalWindowCase('hello');
+
 </script>
 
 <template>
