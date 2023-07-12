@@ -20,20 +20,22 @@ provide('setModalWindowCase', setModalWindowCase);
 
 <template>
   <div class="wrapper">
+    <v-modal-window
+        v-if="modalWindowCase"
+        :case-name="modalWindowCase"
+    />
     <the-leading>
       <the-header></the-header>
     </the-leading>
     <the-main />
     <the-footer/>
-    <v-modal-window
-      v-if="modalWindowCase"
-      :case-name="modalWindowCase"
-    />
   </div>
 </template>
 
 <style scoped>
 .wrapper {
   flex-grow: 1;
+  position: relative;
 }
+
 </style>

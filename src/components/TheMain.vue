@@ -165,6 +165,14 @@ const partners = [
   'tnt',
   'ups',
 ];
+
+import {inject} from "vue";
+
+const setModalWindowCase = inject('setModalWindowCase');
+
+function openModalWindow() {
+  setModalWindowCase('request');
+}
 </script>
 
 <template>
@@ -178,7 +186,7 @@ const partners = [
         предоставленный объем заказов, а вы получаете надежный сервис в подарок!
       </p>
       <form action="#">
-        <v-button colorStyle="white-blue" value="Отправить посылку" />
+        <v-button colorStyle="white-blue" value="Отправить посылку" :handler="openModalWindow"/>
       </form>
     </section>
     <section class="step__section padding-site">
@@ -191,7 +199,7 @@ const partners = [
     <section class="offer offer__section padding-site">
       <h2>Мы берём все заботы по доставке на себя!</h2>
       <form action="#">
-        <v-button colorStyle="white-blue" value="Отправить посылку" />
+        <v-button colorStyle="white-blue" value="Отправить посылку" :handler="openModalWindow"/>
       </form>
     </section>
     <section class="callback callback__section padding-site">

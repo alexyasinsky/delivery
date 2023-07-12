@@ -2,13 +2,21 @@
 import VButton from './VButton.vue';
 
 const props = defineProps(['direction', 'colorStyle']);
+import {inject} from "vue";
+
+const setModalWindowCase = inject('setModalWindowCase');
+
+function openModalWindow() {
+  setModalWindowCase('request');
+}
+
 </script>
 
 <template>
   <form action="#" :class="colorStyle">
     <div :class="direction">
       <input type="tel" placeholder="Ваш телефон" id="tel" />
-      <v-button :colorStyle="colorStyle" value="заказать звонок" />
+      <v-button :colorStyle="colorStyle" value="заказать звонок" :handler="openModalWindow"/>
     </div>
     <div class="agreement">
       <input type="checkbox" id="personal-data" />

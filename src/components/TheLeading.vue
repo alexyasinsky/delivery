@@ -1,5 +1,13 @@
 <script setup>
   import VButton from './VButton.vue';
+
+  import {inject} from "vue";
+
+  const setModalWindowCase = inject('setModalWindowCase');
+
+  function openModalWindow() {
+    setModalWindowCase('request');
+  }
 </script>
 
 <template>
@@ -8,7 +16,7 @@
     <h1>Придумайте, что отправить</h1>
     <p>А посылка доедет сама</p>
     <form action="#">
-      <v-button color-style="white-blue" value="Отправить посылку" />
+      <v-button color-style="white-blue" value="Отправить посылку" :handler="openModalWindow"/>
     </form>
   </div>
 </template>
@@ -19,7 +27,6 @@
   background-image: url('../assets/img/back-sm.png');
   h1 {
     text-transform: uppercase;
-    font-weight: bold;
   }
   p {
     font-weight: bold;
